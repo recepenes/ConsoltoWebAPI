@@ -6,6 +6,16 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+
+
+}
+
 app.UseRouting();
 
 app.UseEndpoints(endpoints =>
