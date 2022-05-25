@@ -2,22 +2,15 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapGet("/", async context =>
-
-     {
-         await context.Response.WriteAsync("Hello from new Web API app");
-     });
-    endpoints.MapGet("/test", async context =>
-
-     {
-         await context.Response.WriteAsync("Hello from new Web API app test");
-     });
+    endpoints.MapControllers();
 });
 
 app.UseStaticFiles();
