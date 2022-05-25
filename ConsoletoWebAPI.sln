@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoltoWebAPI", "ConsoltoWebAPI\ConsoltoWebAPI.csproj", "{C2DEC8FA-63EA-4558-95BD-3F31F56983C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoletoWebAPI", "ConsoltoWebAPI\ConsoletoWebAPI.csproj", "{C2DEC8FA-63EA-4558-95BD-3F31F56983C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
