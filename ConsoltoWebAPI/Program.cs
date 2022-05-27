@@ -8,10 +8,10 @@ builder.Services.AddTransient<CustomerMiddleware>();
 
 var app = builder.Build();
 
-app.UseMiddleware<CustomerMiddleware>();
+//app.UseMiddleware<CustomerMiddleware>();
 
-app.Run(context =>
- context.Response.WriteAsync("Hello from Use-1 1\n"));
+//app.Run(context =>
+// context.Response.WriteAsync("Hello from Use-1 1\n"));
 
 if (app.Environment.IsDevelopment())
 {
