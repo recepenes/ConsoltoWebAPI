@@ -27,5 +27,12 @@ namespace ConsoletoWebAPI.Controllers
                  new EmployeeModel(){Id=2,Name="Employee 3"}
             });
         }
+        [Route("{id}/basic")]
+        public ActionResult<EmployeeModel> GetEmployeesBasicDetails(int id)
+        {
+            if (id == 0) return NotFound();
+
+            return new EmployeeModel() { Id = 1, Name = "Employee 1" };
+        }
     }
 }
