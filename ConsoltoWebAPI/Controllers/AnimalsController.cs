@@ -7,6 +7,7 @@ namespace ConsoletoWebAPI.Controllers
     [ApiController]
     public class AnimalsController : ControllerBase
     {
+        [Route("", Name = "All"),]
         public IActionResult GetAnimals()
         {
             var animals = new List<AnimalsModel>()
@@ -15,6 +16,21 @@ namespace ConsoletoWebAPI.Controllers
                 new AnimalsModel() {Id=2, Name="Lion"}
             };
             return Ok(animals);
+        }
+        [Route("Accepted")]
+        public IActionResult GetAnimalsAccepted()
+        {
+            return Accepted("~/api/animals");
+        }
+        [Route("AcceptedAtAction")]
+        public IActionResult GetAnimalsAcceptedAtAction()
+        {
+            return AcceptedAtAction("GetAnimals");
+        }
+        [Route("AcceptedAtRoute")]
+        public IActionResult GetAnimalsAcceptedAtRoute()
+        {
+            return AcceptedAtRoute("All");
         }
     }
 }
