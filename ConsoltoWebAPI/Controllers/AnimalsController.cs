@@ -43,7 +43,21 @@ namespace ConsoletoWebAPI.Controllers
             if (!name.Contains("ABC")) return BadRequest();
 
             return Ok(animals);
-
         }
+        [HttpPost("", Name = "All")]
+        public IActionResult GetAnimals(AnimalsModel animal)
+        {
+            animals.Add(animal);
+
+            return CreatedAtAction("GetAnimalsById", new { Id = animal.Id }, animal);
+        }
+        [Route("{id:int}")]
+        public IActionResult GetAnimalsById(int Id)
+        {
+            if (Id == 0) return BadRequest();
+
+            return Ok(animals.FirstOrDefault(x => x.Id == Id));
+        }
+
     }
 }
