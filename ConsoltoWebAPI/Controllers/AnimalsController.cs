@@ -56,7 +56,11 @@ namespace ConsoletoWebAPI.Controllers
         {
             if (Id == 0) return BadRequest();
 
-            return Ok(animals.FirstOrDefault(x => x.Id == Id));
+            var animal = animals.FirstOrDefault(a => a.Id == Id);
+
+            if (animal == null) return NotFound();
+
+            return Ok(animal);
         }
         [Route("Test")]
         public IActionResult GetAnimalsTest()
