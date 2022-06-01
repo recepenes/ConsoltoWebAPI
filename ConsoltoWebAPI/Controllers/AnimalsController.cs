@@ -37,13 +37,13 @@ namespace ConsoletoWebAPI.Controllers
         {
             return AcceptedAtRoute("All");
         }
-        [Route("{name}")]
-        public IActionResult GetAnimalsByName(string name)
-        {
-            if (!name.Contains("ABC")) return BadRequest();
+        //[Route("{name}")]
+        //public IActionResult GetAnimalsByName(string name)
+        //{
+        //    if (!name.Contains("ABC")) return BadRequest();
 
-            return Ok(animals);
-        }
+        //    return Ok(animals);
+        //}
         [HttpPost("", Name = "All")]
         public IActionResult GetAnimals(AnimalsModel animal)
         {
@@ -57,6 +57,11 @@ namespace ConsoletoWebAPI.Controllers
             if (Id == 0) return BadRequest();
 
             return Ok(animals.FirstOrDefault(x => x.Id == Id));
+        }
+        [Route("Test")]
+        public IActionResult GetAnimalsTest()
+        {
+            return LocalRedirect("~/api/animals");
         }
 
     }
