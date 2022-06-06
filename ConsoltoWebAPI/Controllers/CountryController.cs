@@ -6,12 +6,14 @@ namespace ConsoletoWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [BindProperties(SupportsGet =true)]
     public class CountryController : ControllerBase
     {
         [BindProperty]
         public CountryModel Country { get; set; }
 
-        [HttpPost("")]
+        //[HttpPost("")]
+        [HttpGet("")]
         public IActionResult AddCountry()
         {
             return Ok($"Name = {Country.Name}, " +
