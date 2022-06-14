@@ -6,18 +6,23 @@ namespace ConsoletoWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [BindProperties(SupportsGet =true)]
+    //[BindProperties(SupportsGet = true)]
     public class CountryController : ControllerBase
     {
-        [BindProperty]
-        public CountryModel Country { get; set; }
+        //[BindProperty]
+        //public CountryModel Country { get; set; }
 
-        //[HttpPost("")]
-        [HttpGet("")]
-        public IActionResult AddCountry()
+        //[HttpPost("")] Post is default
+        //[HttpGet("")]
+        //public IActionResult AddCountry()
+        //{
+        //    return Ok($"Name = {Country.Name}, " +
+        //        $"Population = {Country.Population}, Area = {Country.Area}");
+        //}
+        [HttpPost("")]
+        public IActionResult AddCountry([FromQuery] CountryModel countryModel)
         {
-            return Ok($"Name = {Country.Name}, " +
-                $"Population = {Country.Population}, Area = {Country.Area}");
+            return Ok($"Name = {countryModel.Name}");
         }
     }
 }
