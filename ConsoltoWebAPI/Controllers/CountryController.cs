@@ -19,10 +19,10 @@ namespace ConsoletoWebAPI.Controllers
         //    return Ok($"Name = {Country.Name}, " +
         //        $"Population = {Country.Population}, Area = {Country.Area}");
         //}
-        [HttpPost("")]
-        public IActionResult AddCountry([FromQuery] CountryModel countryModel)
+        [HttpPost("{Name}/{Population}/{Area}")]
+        public IActionResult AddCountry([FromRoute] CountryModel countryModel, [FromQuery] int id)
         {
-            return Ok($"Name = {countryModel.Name}");
+            return Ok($"Name = {countryModel.Name} id={id}");
         }
     }
 }
