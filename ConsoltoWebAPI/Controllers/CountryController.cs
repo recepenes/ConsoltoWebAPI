@@ -24,5 +24,10 @@ namespace ConsoletoWebAPI.Controllers
         {
             return Ok($"Name = {countryModel.Name} id={id}");
         }
+        [HttpPut("{id}")]
+        public IActionResult AddCountry([FromRoute] int id, [FromBody] CountryModel countryModel)
+        {
+            return Ok($"Name = {countryModel.Name} id={countryModel.Population}");
+        }
     }
 }
