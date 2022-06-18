@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ConsoletoWebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/")]
     [ApiController]
     //[BindProperties(SupportsGet = true)]
     public class CountryController : ControllerBase
@@ -28,6 +28,11 @@ namespace ConsoletoWebAPI.Controllers
         public IActionResult AddCountry([FromRoute] int id, [FromBody] CountryModel countryModel)
         {
             return Ok($"Name = {countryModel.Name} id={countryModel.Population}");
+        }
+        [HttpPost("header/{id}")]
+        public IActionResult AddCountry([FromRoute] int id, [FromHeader] string developer)
+        {
+            return Ok($"Id = {id} developer={developer}");
         }
     }
 }
