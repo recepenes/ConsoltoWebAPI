@@ -1,4 +1,5 @@
 ﻿using ConsoletoWebAPI.Models;
+using ConsoletoWebAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConsoletoWebAPI.Controllers
@@ -33,6 +34,13 @@ namespace ConsoletoWebAPI.Controllers
             if (id == 0) return NotFound();
 
             return new EmployeeModel() { Id = 1, Name = "Employee 1" };
+        }
+        [HttpGet("")]
+        public IActionResult GetName([FromServices] IProductRepository _productRepository)
+        {
+            var name = _productRepository.GetName();
+
+            return Ok(name);
         }
     }
 }
