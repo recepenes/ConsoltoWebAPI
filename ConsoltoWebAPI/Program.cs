@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<CustomerMiddleware>();
 
-builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

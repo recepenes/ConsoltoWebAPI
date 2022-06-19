@@ -11,10 +11,13 @@ namespace ConsoletoWebAPI.Controllers
     {
 
         private readonly IProductRepository _productRepository;
+        private readonly IProductRepository _productRepository2;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductRepository productRepository, 
+            IProductRepository productRepository2)
         {
             _productRepository = productRepository;
+            _productRepository2 = productRepository2;
         }
 
         [HttpPost("")]
@@ -23,7 +26,7 @@ namespace ConsoletoWebAPI.Controllers
         {
             _productRepository.AddProduct(product);
 
-            var products = _productRepository.GetAllProducts();
+            var products = _productRepository2.GetAllProducts();
 
             return Ok(products);
         }
