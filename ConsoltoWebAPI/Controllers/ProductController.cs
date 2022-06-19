@@ -13,7 +13,7 @@ namespace ConsoletoWebAPI.Controllers
         private readonly IProductRepository _productRepository;
         private readonly IProductRepository _productRepository2;
 
-        public ProductController(IProductRepository productRepository, 
+        public ProductController(IProductRepository productRepository,
             IProductRepository productRepository2)
         {
             _productRepository = productRepository;
@@ -29,6 +29,14 @@ namespace ConsoletoWebAPI.Controllers
             var products = _productRepository2.GetAllProducts();
 
             return Ok(products);
+        }
+        [HttpGet("")]
+
+        public IActionResult GetName()
+        {
+            var name = _productRepository.GetName();
+
+            return Ok(name);
         }
     }
 }

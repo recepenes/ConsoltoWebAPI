@@ -19,5 +19,10 @@ namespace ConsoletoWebAPI.Repository
         {
             return products;
         }
+
+        public string GetName()
+        {
+            return "Name From ProductRepository";
+        }
     }
 }

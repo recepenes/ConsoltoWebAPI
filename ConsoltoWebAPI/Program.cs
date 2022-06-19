@@ -1,5 +1,6 @@
 ﻿using ConsoletoWebAPI;
 using ConsoletoWebAPI.Repository;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<CustomerMiddleware>();
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.TryAddScoped<IProductRepository, ProductRepository>();
+builder.Services.TryAddScoped<IProductRepository, TestRepository>();
 
 var app = builder.Build();
 
