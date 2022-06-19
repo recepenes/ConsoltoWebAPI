@@ -2,9 +2,9 @@
 
 namespace ConsoletoWebAPI.Repository
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
-        private static List<ProductModel> products = new List<ProductModel>();
+        private List<ProductModel> products = new List<ProductModel>();
 
         public int AddProduct(ProductModel product)
         {

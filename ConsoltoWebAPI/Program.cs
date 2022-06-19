@@ -1,10 +1,13 @@
 ﻿using ConsoletoWebAPI;
+using ConsoletoWebAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 builder.Services.AddTransient<CustomerMiddleware>();
+
+builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
